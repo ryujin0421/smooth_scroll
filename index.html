@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f2f2f0;
+    z-index: 10;
+    box-shadow: 0px 1px 8px #00000039;
+  }
+
+  nav ul {
+    font-size: 14px;
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #333333;
+    font-style: italic;
+    font-weight: 800;
+  }
+
+  nav ul#menu li {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    color: #0047BA;
+    line-height: 75px;
+    padding: 0 12px;
+    background-color: #f2f2f0;
+  }
+
+  ul.child {
+    display: none;
+    position: absolute;
+  }
+
+  ul.child li a {
+    color: #0047BA;
+    transition: 0.8s;
+  }
+
+  nav img {
+    margin-bottom: 10px;
+  }
+
+  section {
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #apple {
+    background-image: url(apple.jpg);
+  }
+
+  #banana {
+    background-image: url(banana.jpg);
+  }
+  
+  #watermelon {
+    background-image: url(watermelon.jpg);
+  }
+
+  #grape {
+    background-image: url(Grape.jpg);
+  }
+  
+  #lime {
+    background-image: url(lime.jpg);
+  }
+
+</style>
+
+<body>
+  <nav>
+    <div class="animation">
+      <ul id="menu" class="after">
+
+        <li><a href="#apple">APPLE🍎</a></li>
+        <li><a href="#banana">BANANA🍌</a></li>
+        <li><a href="#watermelon">WATERMELON🍉</a></li>
+        <li><a href="#grape">GRAPE🍇</a></li>
+        <li><a href="#lime">LIME🍋</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="apple"></section>
+  <section id="banana"></section>
+  <section id="watermelon"></section>
+  <section id="grape"></section>
+  <section id="lime"></section>
+
+  <script>
+    var smooth = $('a[href^="#"]');
+    
+  smooth.click(function() {
+      var speed = 400;
+      var href= $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $('body,html').animate({scrollTop:position}, speed, 'swing');
+      return false;
+   });
+  </script>
+
+</body>
+
+</html>
